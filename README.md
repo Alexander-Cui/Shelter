@@ -12,6 +12,6 @@
 * footer.html
   * contains copyright info
 
-### Web-stuff
+### Templates
 * login.html
 * shelterAdmin.html
