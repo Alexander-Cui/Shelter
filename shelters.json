@@ -3,48 +3,64 @@ shelters: [
 "name": "ABRI DE LA RIVE-SUD",
 "address": "459 Sainte-Foy Boulevard, Longueuil, Montérégie, QC, J4J 1X9",
 "phone": "450-646-7809",
-"demographic": "homeless men and women 18 years old and over"
+"demographic": "homeless men and women 18 years old and over",
+"lat": "45.527113",
+"lng": "-73.491401"
 }, 
 {
 "name": "ACCUEIL BONNEAU - HALTE RÉPIT DU GRAND QUAI DU VIEUX PORT",
 "address": "200 de la Commune Street West, Ville-Marie, Montréal, QC, H2Y 4B2",
 "phone": "438-220-2129",
-"demographic": "people experiencing homelessness"
+"demographic": "people experiencing homelessness",
+"lat": "45.50278210975688", 
+"long": "-73.55078210122505"
 }, 
 {
-"name": "ACCUEIL COMMUNAUTAIRE JEUNESSE DES BASSES-LAURENTIDES - LE RÉPIT DE LA RUE",
+"name": "ACCUEIL COMMUNAUTAIRE JEUNESSE DES BASSES-LAURENTIDES - LE RÉPIT DE LA RUE"
 "address": "303 and 305 Féré Street, Saint-Eustache, Laurentides, QC, J7R 2V1",
 "phone": "450-472-3135",
-"demographic": "people 18 years and over, homeless or at risk of homelessness"
+"demographic": "people 18 years and over, homeless or at risk of homelessness",
+"lat": "45.56022216472333",
+"long": "-73.90146460122374"
 }, 
 {
 "name": "ACTION JEUNESSE DE L'OUEST-DE-L'ÎLE - WARMING CENTRE",
 "address": "5100 du Château-Pierrefonds Avenue, Pierrefonds-Roxboro, Montréal, QC, H9K 1P3",
 "phone": " ",
-"demographic": "homeless people, pets accepted"
+"demographic": "homeless people, pets accepted",
+"lat": "45.46504971765899",
+"long": "-73.89738864355341"
 }, 
 {
 "name": "AIGUILLAGE (L')",
 "address": "536 Chicoine Street, Vaudreuil-Dorion, Montérégie, QC, J7V 7E4",
 "phone": "450-218-6418",
-"demographic": "homeless men and women 18 years old and over"
+"demographic": "homeless men and women 18 years old and over",
+"lat": "45.376053545234946",
+"long": "-74.02330378773671"
 }, 
 {
 "name": "AJOI-MOBILE",
 "address": "West Island, Montréal, QC",
 "phone": "514-708-1270",
-"demographic": "homeless people 18 years and over"
+"demographic": "homeless people 18 years and over",
+"lat": "0",
+"long": "0"
 }, 
 {
 "name": "AMOUR EN ACTION (L')",
 "address": "10201 des Laurentides Avenue, Montréal-Nord, Montréal, QC, H1H 4V4",
 "phone": "514-327-0200",
-"demographic": "people on a low income, warming centre: men, women and children"
+"demographic": "people on a low income, warming centre: men, women and children",
+"lat": "45.58222905820677" ,
+"long": "-73.6384263435507"
 }, 
 {
 "name": "ASSOCIATION D'ENTRAIDE LE CHAÎNON",
 "address": "4373 de l'Esplanade Avenue, Le Plateau-Mont-Royal, Montréal, QC, H2W 1T2",
 "phone": "514-845-0151",
-"demographic": "women in difficult situations, 18 years old and over"
+"demographic": "women in difficult situations, 18 years old and over",
+"lat": "45.51786071817851",
+"long": "-73.58611811656979"
 }
 ]
