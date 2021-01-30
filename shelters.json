@@ -3,48 +3,48 @@ shelters: [
 "name": "ABRI DE LA RIVE-SUD",
 "address": "459 Sainte-Foy Boulevard, Longueuil, Montérégie, QC, J4J 1X9",
 "phone": "450-646-7809",
-"demographic": "homeless men and women 18 years old and over",
+"demographic": "homeless men and women 18 years old and over"
 }, 
 {
 "name": "ACCUEIL BONNEAU - HALTE RÉPIT DU GRAND QUAI DU VIEUX PORT",
 "address": "200 de la Commune Street West, Ville-Marie, Montréal, QC, H2Y 4B2",
 "phone": "438-220-2129",
-"demographic": "people experiencing homelessness",
+"demographic": "people experiencing homelessness"
 }, 
 {
-"name": "ACCUEIL COMMUNAUTAIRE JEUNESSE DES BASSES-LAURENTIDES - LE RÉPIT DE LA RUE",
-"303 and 305 Féré Street, Saint-Eustache, Laurentides, QC, J7R 2V1",
+"name": "ACCUEIL COMMUNAUTAIRE JEUNESSE DES BASSES-LAURENTIDES - LE RÉPIT DE LA RUE"
+"address": "303 and 305 Féré Street, Saint-Eustache, Laurentides, QC, J7R 2V1",
 "phone": "450-472-3135",
-"demographic": "people 18 years and over, homeless or at risk of homelessness",
+"demographic": "people 18 years and over, homeless or at risk of homelessness"
 }, 
 {
 "name": "ACTION JEUNESSE DE L'OUEST-DE-L'ÎLE - WARMING CENTRE",
 "address": "5100 du Château-Pierrefonds Avenue, Pierrefonds-Roxboro, Montréal, QC, H9K 1P3",
 "phone": " ",
-"demographic": "homeless people, pets accepted",
+"demographic": "homeless people, pets accepted"
 }, 
 {
-"name": "AIGUILLAGE (L')"
+"name": "AIGUILLAGE (L')",
 "address": "536 Chicoine Street, Vaudreuil-Dorion, Montérégie, QC, J7V 7E4",
 "phone": "450-218-6418",
-"demographic": "homeless men and women 18 years old and over",
+"demographic": "homeless men and women 18 years old and over"
 }, 
 {
 "name": "AJOI-MOBILE",
 "address": "West Island, Montréal, QC",
 "phone": "514-708-1270",
-"demographic": "homeless people 18 years and over",
+"demographic": "homeless people 18 years and over"
 }, 
 {
 "name": "AMOUR EN ACTION (L')",
 "address": "10201 des Laurentides Avenue, Montréal-Nord, Montréal, QC, H1H 4V4",
 "phone": "514-327-0200",
-"demographic": "people on a low income, warming centre: men, women and children",
+"demographic": "people on a low income, warming centre: men, women and children"
 }, 
 {
 "name": "ASSOCIATION D'ENTRAIDE LE CHAÎNON",
 "address": "4373 de l'Esplanade Avenue, Le Plateau-Mont-Royal, Montréal, QC, H2W 1T2",
 "phone": "514-845-0151",
-"demographic": "women in difficult situations, 18 years old and over",
+"demographic": "women in difficult situations, 18 years old and over"
 }
 ]
