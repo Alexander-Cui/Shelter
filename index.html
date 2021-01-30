@@ -1,0 +1,108 @@
+<!--%@ Page Language="C#" Inherits="aroundU.Default" %-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shelter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script>
+        $(function(){
+            $("#navbarReuse").load("navbar.html");
+            $("#footerReuse").load("footer.html");
+        });
+    </script>
+</head>
+<style>
+    body {
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        background: linear-gradient(to bottom, #FFFAF0 0%, #FFFAF0 100%);
+        background-size: cover;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+    .btn {
+        width: 20%;
+        color:white;
+    }
+    .btn-lg {
+        width: 40%;
+        margin-top: 20%;
+        margin-left: 20%;
+    }
+</style>
+
+<body>
+
+    <div id="navbarReuse"></div>
+    <br>
+    <div class="container mr-auto ml-auto">
+        <div id="searchWrapper">
+            <input
+                type="text"
+                name="searchBar"
+                id="searchBar"
+                placeholder="Location"
+            />
+        </div>
+    </div>
+    <br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6" style="background-color:#FFFAF0 ;">
+                <div class="dropdown">
+                    <button type="button" class="btn dropdown-toggle" style="display: block; margin: 0 auto; background-color:#333333;" data-toggle="dropdown">
+                      Age
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Under 18</a>
+                      <a class="dropdown-item" href="#">Over 18</a>
+                      <a class="dropdown-item" href="#">Rather Not Say</a>
+                    </div>
+                  </div>
+                  <br>
+            </div>
+            <div class="form-group">
+        <label >Gender</label>
+        <div>
+            <label class="radio-inline"> <input type="radio" name="season" id="seasonSummer" value="summer" checked> Summer </label>
+            <label class="radio-inline"> <input type="radio" name="season" id="seasonWinter" value="winter"> Winter </label>
+            <label class="radio-inline"> <input type="radio" name="season" id="seasonSpringFall" value="spring-fall"> Spring-Fall </label>
+        </div>
+    </div>
+                  <br>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12" style="background-color:#FFFAF0 ;"></div>
+            <button type="button" class="btn btn-lg" style="display: block; margin: 0 auto; background-color:#8B0000;" data-toggle="dropdown">
+                View All
+              </button>
+        </div>
+{% for shelter in shelters_data['shelters'] %}
+
+    <div class="card">
+  <div class="card-body">
+      <h1>{{shelter['name']}}</h1>
+        <h2>{{shelter['location']}}</h2>
+      <h2>{{shelter['phone']}}</h2>
+      <h2>{{shelter['demographic']}}</h2>
+
+  </div>
+    </div>
+
+    {% endfor %}
+    </div>
+
+    <div id="footerReuse"></div>
+</body>
+</html>
