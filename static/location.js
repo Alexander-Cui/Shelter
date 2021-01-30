@@ -24,15 +24,15 @@ async function callDistanceMatrix(){
     // });
     console.log("i have been called");
     var origin1 = new google.maps.LatLng(55.930385, -3.118425);
-    var origin2 = 'Greenwich, England';
-    var destinationA = 'Stockholm, Sweden';
+    var origin2 = 'H2Y 4B2';
+    var destinationA = 'J4J 1X9';
     var destinationB = new google.maps.LatLng(50.087692, 14.421150);
 
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
     {
-        origins: [origin1, origin2],
-        destinations: [destinationA, destinationB],
+        origins: [origin1],
+        destinations: [destinationA, destinationB, origin2],
         travelMode: 'DRIVING',
         // transitOptions: TransitOptions,
         // drivingOptions: DrivingOptions,

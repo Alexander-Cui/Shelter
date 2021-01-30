@@ -1,0 +1,33 @@
+<!doctype html>
+<title>Shelter</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='shelter.css') }}">
+<body>
+    <section class="main">
+        <div class="shelter-name">
+            <h1 class="name">ABRI DE LA RIVE-SUD</h1>
+        </div>
+        <div class="available">
+            <button class="buttons">
+                <h1>Space available</h1>
+
+            </button>
+            <div class="edit">
+                <button class="increment">-</button>
+                <input class="input"/>
+                <button class="increment">+</button>
+            </div>
+            <div class="set">
+                <button>
+                    Set available space
+                </button>
+            </div>
+        </div>
+        <div class="not-available">
+            <button class="buttons">
+                No space available
+            </button>
+        </div>
+    </section>
+
+</body>

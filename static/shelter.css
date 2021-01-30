@@ -1,0 +1,67 @@
+*{
+    font-size: 18px;
+}
+
+.available{
+    display:flex;
+    flex-direction: column;
+}
+
+.buttons{
+    margin: auto;
+    height:200px;
+    width: 500px;
+    border-radius: 20px;
+
+}
+
+.edit{
+    margin: auto;
+    margin-top: 20px;
+}
+
+.editSpace{
+
+    text-align: center;
+
+}
+
+.increment{
+
+    height:50px;
+    width: 50px;
+
+}
+
+.input{
+    height: 40px;
+}
+
+.main{
+    height: 90vh;
+    padding: 2rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.name{
+    font-size: 48px;
+}
+
+.not-available{
+    margin:auto;
+}
+
+.set{
+
+    margin:auto;
+    margin-top:10px;
+
+}
+
+.shelter-name{
+    text-align: center;
+}
