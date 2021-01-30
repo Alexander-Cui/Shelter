@@ -1,14 +1,63 @@
-<!doctype html>
-<title>Shelter</title>
+<head>
+    <title> Shelter </title >
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<link  rel = " stylesheet " href = " {{url_for ('static', filename = 'login.css')}} " >
 
-<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+<style>
+    body {
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        background: linear-gradient(to bottom, #333333 0%, #333333 100%);
+        background-size: cover;
+    }
+
+    #submitButton {
+        border: 2px solid #333333;
+        border-radius: 8px;
+        background-color:#F8F8F8;
+    }
+
+    #submitButton:hover {
+        background-color: #E8E8E8;
+    }
+
+    .container {
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E8E8E8;
+    }
+
+</style>
 <body>
-<form method="POST">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Register">
-</form>
-
-</body>
+    <br>
+    <br>
+    <div class="container">
+        <form  method = " POST ">
+            <div class="col-sm-12 form-group text-center" >
+                <h2>Login to Your Account</h2>
+            </div>
+            <div class="col-sm-12 form-group text-center" >
+                <label  for = " username " > <b>Username</b></label >
+                    <br>
+                <input  name = " username " id = " username " required >
+            </div>
+            <div class="col-sm-12 form-group text-center">
+                <label  for = " password " > <b>Password</b> </label >
+                    <br>
+                <input  type = " password " name = " password " id = " password " required >
+            </div>
+            <div class="col-sm-12 form-group">
+                <div class="col text-center">
+                <button id="submitButton" value = "Register" type="submit">Login</button>
+            </div>  
+        </form >
+    </div>
+</body >
