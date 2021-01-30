@@ -1,7 +1,6 @@
-<!--%@ Page Language="C#" Inherits="aroundU.Default" %-->
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <title>Shelter</title>
     <meta charset="utf-8">
@@ -12,17 +11,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script>
+    <script> 
         $(function(){
-            $("#navbarReuse").load("navbar.html");
+            $("#navbarReuse").load("navbar.html"); 
             $("#footerReuse").load("footer.html");
-        });
-    </script>
+        });         
+    </script> 
 </head>
+
 <style>
     body {
         font-family: 'Helvetica', 'Arial', sans-serif;
-        background: linear-gradient(to bottom, #FFFAF0 0%, #FFFAF0 100%);
+        background: linear-gradient(to bottom, #DCDCDC 0%, #DCDCDC 100%);
         background-size: cover;
     }
     .container {
@@ -30,21 +30,45 @@
         justify-content: center;
     }
     .btn {
-        width: 20%;
+        width: 30%;
         color:white;
     }
     .btn-lg {
         width: 40%;
-        margin-top: 20%;
-        margin-left: 20%;
+        margin-top: 10%;
+        margin-left: 10%;   
+    }   
+    #shelters {
+        border: 6px solid #333333;
+        border-radius: 8px;
+        background-color:#F8F8F8;
+    }
+
+    #shelters:hover {
+        background-color: #E8E8E8;
+    }
+
+    #shelters > p {
+        color: black;
+        padding: 20px 20px 20px 20px
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    #shelters > p {
+        color: black;
+        margin: 1px;
+        font-size: 10px;
     }
 </style>
 
 <body>
-
+        
     <div id="navbarReuse"></div>
     <br>
-    <div class="container mr-auto ml-auto">
+    <div class="container mr-auto ml-auto"> 
         <div id="searchWrapper">
             <input
                 type="text"
@@ -55,10 +79,10 @@
         </div>
     </div>
     <br>
-
+    
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6" style="background-color:#FFFAF0 ;">
+            <div class="col-sm-6" style="background-color:#DCDCDC ;">
                 <div class="dropdown">
                     <button type="button" class="btn dropdown-toggle" style="display: block; margin: 0 auto; background-color:#333333;" data-toggle="dropdown">
                       Age
@@ -68,41 +92,88 @@
                       <a class="dropdown-item" href="#">Over 18</a>
                       <a class="dropdown-item" href="#">Rather Not Say</a>
                     </div>
-                  </div>
+                  </div> 
                   <br>
             </div>
-            <div class="form-group">
-        <label >Gender</label>
-        <div>
-            <label class="radio-inline"> <input type="radio" name="season" id="seasonSummer" value="summer" checked> Summer </label>
-            <label class="radio-inline"> <input type="radio" name="season" id="seasonWinter" value="winter"> Winter </label>
-            <label class="radio-inline"> <input type="radio" name="season" id="seasonSpringFall" value="spring-fall"> Spring-Fall </label>
-        </div>
-    </div>
+            <div class="col-sm-6" style="background-color:#DCDCDC;">
+                <div class="dropdown">
+                    <button type="button" class="btn dropdown-toggle" style="display: block; margin: 0 auto; background-color:#333333;" data-toggle="dropdown">
+                      Gender
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Male</a>
+                      <a class="dropdown-item" href="#">Female</a>
+                      <a class="dropdown-item" href="#">Rather Not Say</a>
+                    </div>
+                  </div> 
                   <br>
-
+            </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12" style="background-color:#FFFAF0 ;"></div>
-            <button type="button" class="btn btn-lg" style="display: block; margin: 0 auto; background-color:#8B0000;" data-toggle="dropdown">
-                View All
-              </button>
-        </div>
-{% for shelter in shelters_data['shelters'] %}
-
-    <div class="card">
-  <div class="card-body">
-      <h1>{{shelter['name']}}</h1>
-        <h2>{{shelter['location']}}</h2>
-      <h2>{{shelter['phone']}}</h2>
-      <h2>{{shelter['demographic']}}</h2>
-
-  </div>
+        
+        <div class="container">    
+            <div id="shelter_list"></div>                      
+        </div>  
     </div>
 
-    {% endfor %}
-    </div>
+    
+    <div id="footerReuse"></div> 
+    
+    <script>
+        const shelterList = document.getElementById('shelter_list');
+        let allShelters = [];
 
-    <div id="footerReuse"></div>
-</body>
+        const loadShelters = async () => {
+            try {
+                const res = await fetch('shelters.json');
+                allShelters = await res.json();
+                displayShelters(allShelters);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        const displayShelters = (shelters) => {
+            const htmlString = shelters
+                .map((shelter) => {
+                    return `   
+                    <a data-toggle="modal" data-target="#myModal${shelter.ID}">
+                        <div class="row">
+                            <div class="col-sm-12" id="shelters">                            
+                                <p style="font-size: 100%;">${shelter.name}
+                                    <!-- <p>${shelter.address}</p>  --> 
+                                </p>      
+                             </div>                        
+                        </div>
+                    </a>
+                    
+                    <!-- Modal -->
+                    <div id="myModal${shelter.ID}" class="modal fade" role="dialog">
+                      <div class="modal-dialog modal-lg">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title"><center>${shelter.name}</center></h3>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4>${shelter.name}</h4>
+                                    <h5><a style="color: black"; href="${shelter.map}" target="_blank" rel="noopener"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;${shelter.address}</a></h5>   
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                `;
+                })
+                .join('');
+            shelterList.innerHTML = htmlString;
+        };     
+         
+        loadShelters();          
+    </script> 
+</body>   
 </html>
