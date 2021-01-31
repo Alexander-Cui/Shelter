@@ -25,10 +25,10 @@ def home():
     ordered_matching = []
     matching_shelters = {}
     matching_shelters['shelters'] = matching
+
     if request.method == 'POST':
-        print("$$$$$")
+
         if 'age' or 'gender' in request.form:
-            print("*******")
             gender = request.form['gender']
             age = request.form['age']
             ordered_locations = request.json
@@ -48,6 +48,30 @@ def home():
 
     #return render_template('index.html', shelters_data=matching_shelters)
     return render_template('index.html', shelters_data=shelters_data)
+
+@app.route('/Shelter', methods=["POST"])
+def shelter():
+    if request.method == 'POST':
+        print(request.form['username'])
+        homeless_shelter_name = request.form['username']
+
+    return render_template("shelterAdmin.html",homeless_shelter_name=homeless_shelter_name )
+
+@app.route('/login', methods=["GET","POST"])
+
+
+def login():
+    return render_template("login.html")
+
+
+
+@app.route('/updated', methods="POST")
+def update():
+
+    if request.method == 'POST':
+
+        print(request.form)
+
 if __name__ == '__main__':
     app.run()
 #app.run('0.0.0.0', 8000, debug = True)
