@@ -78,6 +78,9 @@
         color: white;
         text-align: center;
     }
+    #tag {
+        padding: 5%;
+    }
 </style>
 
 <body>
@@ -112,6 +115,7 @@
     </script>
     <div id="navbarReuse"></div>
     <br>
+    
     <div class="container mr-auto ml-auto">
         <b>Location: </b>
         &nbsp
@@ -125,6 +129,7 @@
         </div>
     </div>
     <br>
+    <div id="tag">
     <form action ='/' method = "post">
        <div class="container-fluid">
          <div class="row">
@@ -152,44 +157,47 @@
          <div class="container">
              <div id="shelter_list"></div>
              <input type="submit" value="Submit">
+        </div>
     </form>
 
     {% for shelter in shelters_data['shelters'] %}
-
-    <!-- <div class="card"> -->
-        <div class="container">
-            <a data-toggle="modal" data-target="#myModal{{shelter['id']}}">
-                <div class="row">
-                    <div class="col-sm-12 form-group text-center" id="shelters">
-                        <h3>{{shelter['name']}}</h3>
-                        <h4>{{shelter['address']}}</h4>
-                        <h5> Capacity: {{shelter['capacity']}}</h5>
-                    </div>
-                </div>
-            </a>
-            <div id="myModal{{shelter['id']}}" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-content">
-                        <div class="row"></div>
-                            <div class="col-sm-12"></div>
-                                <h2>{{shelter['name']}}</h2>
-                                <a href="tel:211" target="_blank"><i class="fa fa-phone"></i>&nbsp {{shelter['phone']}}</a>
+        <!-- <div class="card"> -->
+            <!-- <div class="container"> -->
+                <a data-toggle="modal" data-target="#myModal{{shelter['id']}}">
+                    <div class="row">
+                        <div class="col-sm-12 form-group text-center" id="shelters"> 
+                            <h4>{{shelter['name']}}</h4>
+                            <h6>{{shelter['address']}}</h6>                       
+                            <h5> Capacity: {{shelter['capacity']}}</h5>  
+                        </div>
+                    </div>   
+                </a>
+                <div id="myModal{{shelter['id']}}" class="modal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content ">
+                            <div class="modal-header">
+                                <h5 class="modal-title">{{shelter['name']}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <a href="tel:211" target="_blank"><i class="fa fa-phone"></i>&nbsp {{shelter['phone']}}</a>                      
                                 <h5>{{shelter['demographic']}}</h5>
-                                <a href="googlemaps.com" target="_blank"><i class="fa fa-map"></i>&nbsp {{shelter['address']}}</a>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="https://www.google.com/maps/" target="_blank"><i class="fa fa-map"></i>&nbsp {{shelter['address']}}</a>
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
-                </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div> -->
+
 
     {% endfor %}
 
-
+            </div>
     <div id="myFooter" class="footer">
         <p id="rights"></p>
         <script>document.querySelector('#rights').innerHTML = `Copyright &copy; ${new Date().getFullYear()} SHELTER All rights reserved`;</script>
