@@ -1,6 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <title>Shelter</title>
     <meta charset="utf-8">
@@ -11,16 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUcZ7C8rWZK9SMVFvlPuKF8Ah2wwKmLmk">
-    </script>
-    <script type=text/javascript src="{{url_for ('static', filename = 'location.js')}}" ></script>
-    <script>
+    <script> 
         $(function(){
-            $("#navbarReuse").load("navbar.html");
+            $("#navbarReuse").load("navbar.html"); 
             $("#footerReuse").load("footer.html");
-        });
-    </script>
+        });         
+    </script> 
 </head>
 
 <style>
@@ -40,14 +37,8 @@
     .btn-lg {
         width: 40%;
         margin-top: 10%;
-        margin-left: 10%;
-    }
-    .lat{
-        display: none;
-    }
-    .lng{
-        display:none;
-    }
+        margin-left: 10%;   
+    }   
     #shelters {
         border: 6px solid #333333;
         border-radius: 8px;
@@ -72,13 +63,24 @@
         margin: 1px;
         font-size: 10px;
     }
+
+    #searchBar {
+        width: 100%;
+        height: 80%;
+        border-radius: 6px;
+        border: 1px solid #333333;
+        padding: 5px 10px;
+        font-size: 18px;
+    }
 </style>
 
 <body>
-
+        
     <div id="navbarReuse"></div>
     <br>
-    <div class="container mr-auto ml-auto">
+    <div class="container mr-auto ml-auto"> 
+        <b>Location: </b>
+        &nbsp
         <div id="searchWrapper">
             <input
                 type="text"
@@ -88,71 +90,60 @@
             />
         </div>
     </div>
-    <br>
-
+    <br>   
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6" style="background-color:#DCDCDC ;">
-                <div class="dropdown">
-                    <button type="button" class="btn dropdown-toggle" style="display: block; margin: 0 auto; background-color:#333333;" data-toggle="dropdown">
-                      Age
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Under 18</a>
-                      <a class="dropdown-item" href="#">Over 18</a>
-                      <a class="dropdown-item" href="#">Rather Not Say</a>
-                    </div>
-                  </div>
-                  <br>
+            <div class="col-sm-6 text-center" style="background-color:#DCDCDC ;">
+                <fieldset id="Age">
+                <b>Age: </b>
+                <label for="opt-0"><input type="radio" name="Age" id="opt-0" checked>Under 18</label>
+                &nbsp
+                <label for="opt-1" ><input type="radio" name="Age" id="opt-1">Over 18</label>
+                &nbsp
+                <label for="opt-2"><input type="radio" name="Age" id="opt-2">Rather Not Say</label>
+            </fieldset>
+            <br>
             </div>
-            <div class="col-sm-6" style="background-color:#DCDCDC;">
-                <div class="dropdown">
-                    <button type="button" class="btn dropdown-toggle" style="display: block; margin: 0 auto; background-color:#333333;" data-toggle="dropdown">
-                      Gender
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Male</a>
-                      <a class="dropdown-item" href="#">Female</a>
-                      <a class="dropdown-item" href="#">Rather Not Say</a>
-                    </div>
-                  </div>
-                  <br>
+            <div class="col-sm-6 text-center" style="background-color:#DCDCDC;">
+                <fieldset id="Gender">
+                <b>Gender: </b>
+                <label for="opt-3"><input type="radio" name="Gender" id="opt-3" checked>Male</label>
+                &nbsp
+                <label for="opt-4" ><input type="radio" name="Gender" id="opt-4">Female</label>
+                &nbsp
+                <label for="opt-5"><input type="radio" name="Gender" id="opt-5">Rather Not Say</label>
+                </fieldset>           
+            <br>
+            </div>
+        </div>
+        
+        <div class="container">    
+            <div id="shelter_list"></div>                      
+        </div>  
+    </div>
+
+    
+    <div id="footerReuse"></div> 
+    
+    <div class="row">
+        <div class="col-sm-12" id="shelters">
+            {% for shelter in shelters_data['shelters'] %}
+
+        <div class="card">
+            <div class="card-body">
+                <h1>{{shelter['name']}}</h1>
+                <h2>{{shelter['address']}}</h2>
+                <h2>Phone Number: {{shelter['phone']}}</h2>
+                <h2>{{shelter['demographic']}}</h2>
+                <h2>Capacity: {{shelter['capacity']}}</h2>      
             </div>
         </div>
 
-        <div class="container">
-            <div id="shelter_list"></div>
-        </div>
+            {% endfor %}
+         </div>
     </div>
 
 
-    <div id="footerReuse"></div>
 
-
-                        <div class="row">
-                            <div class="col-sm-12" id="shelters">
-                                {% for shelter in shelters_data['shelters'] %}
-
-    <div class="card">
-  <div class="card-body">
-      <h1 class="shelter-name">{{shelter['name']}}</h1>
-        <h2>{{shelter['address']}}</h2>
-      <h2>Phone Number: {{shelter['phone']}}</h2>
-      <h2>{{shelter['demographic']}}</h2>
-      <h2>Capacity: {{shelter['capacity']}}</h2>
-      <div class="lat" style="display:hidden">{{shelter['lat']}}</div>
-      <div class="lng" style="display:hidden">{{shelter['lng']}}</div>
-  </div>
-    </div>
-
-    {% endfor %}
-                             </div>
-                        </div>
-                    </a>
-
-
-</body>
-<footer>
-
-</footer>
+</body>   
 </html>
