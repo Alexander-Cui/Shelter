@@ -12,6 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUcZ7C8rWZK9SMVFvlPuKF8Ah2wwKmLmk">
+    </script>
+    <script type="text/javascript"
+    src="{{ url_for('static', filename='location.js') }}"></script>
+
     <script> 
         $(function(){
             $("#navbarReuse").load("navbar.html"); 
@@ -136,6 +143,8 @@
                 <h2>Phone Number: {{shelter['phone']}}</h2>
                 <h2>{{shelter['demographic']}}</h2>
                 <h2>Capacity: {{shelter['capacity']}}</h2>      
+                <div class="lat" style="display:none">{{shelter['lat']}}</div>
+                <div class="lng" style="display:none">{{shelter['lng']}}</div>
             </div>
         </div>
 
