@@ -1,5 +1,6 @@
 {"shelters": [
 {
+  "id": "1",
 "name": "ABRI DE LA RIVE-SUD",
 "address": "459 Sainte-Foy Boulevard, Longueuil, Montérégie, QC, J4J 1X9",
 "phone": "450-646-7809",
@@ -8,9 +9,11 @@
 "lng": "-73.491401",
   "age": "18+",
   "gender": "either",
-  "capacity": "20"
+  "capacity": "20",
+  "gMaps": "https://www.google.com/maps/place/Abri+de+la+Rive-Sud/@45.5268947,-73.4936006,17z/data=!3m1!4b1!4m5!3m4!1s0x4cc91b3be4da3581:0x70817d9cd99e18c1!8m2!3d45.5268947!4d-73.4914119"
 }, 
 {
+  "id": "2",
 "name": "ACCUEIL BONNEAU - HALTE RÉPIT DU GRAND QUAI DU VIEUX PORT",
 "address": "200 de la Commune Street West, Ville-Marie, Montréal, QC, H2Y 4B2",
 "phone": "438-220-2129",
@@ -19,9 +22,11 @@
 "lng": "-73.55078210122505",
   "age": "18+",
   "gender": "either",
-  "capacity": "20"
+  "capacity": "20",
+  "gMaps": "https://www.google.com/maps/place/200+de+la+Commune+St+W,+Montreal,+QC+H2Y+4B2/@45.5026164,-73.5595368,15z/data=!3m1!4b1!4m5!3m4!1s0x4cc91a586b624b7f:0x2dba63a25fb9be72!8m2!3d45.5026167!4d-73.5507821"
 }, 
 {
+  "id": "3",
 "name": "ACCUEIL COMMUNAUTAIRE JEUNESSE DES BASSES-LAURENTIDES - LE RÉPIT DE LA RUE",
 "address": "303 and 305 Féré Street, Saint-Eustache, Laurentides, QC, J7R 2V1",
 "phone": "450-472-3135",
@@ -30,9 +35,11 @@
 "lng": "-73.90146460122374",
   "age": "18+",
   "gender": "either",
-  "capacity": "20"
+  "capacity": "20",
+  "gMaps": "https://www.google.com/maps/place/305+Rue+F%C3%A9r%C3%A9,+Saint-Eustache,+QC+J7R+2V1/@45.5600416,-73.9102193,15z/data=!3m1!4b1!4m5!3m4!1s0x4cc92f8392d47ee1:0x75b43d17f11b9edf!8m2!3d45.5600419!4d-73.9014646"
 }, 
 {
+  "id": "4",
 "name": "ACTION JEUNESSE DE L'OUEST-DE-L'ÎLE - WARMING CENTRE",
 "address": "5100 du Château-Pierrefonds Avenue, Pierrefonds-Roxboro, Montréal, QC, H9K 1P3",
 "phone": " ",
@@ -41,9 +48,11 @@
 "lng": "-73.89738864355341",
   "age": "18+",
   "gender": "either",
-  "capacity": "20"
+  "capacity": "20",
+  "gMaps": "https://www.google.com/maps/place/5100+Ave+du+Ch%C3%A2teau-Pierrefonds,+Pierrefonds,+QC+H9K+1P3/@45.4648237,-73.9061648,15z/data=!3m1!4b1!4m5!3m4!1s0x4cc93a3504bc9041:0xd49e7dd4040c4a1a!8m2!3d45.464824!4d-73.8974101"
 }, 
 {
+  "id": "5",
 "name": "AIGUILLAGE (L')",
 "address": "536 Chicoine Street, Vaudreuil-Dorion, Montérégie, QC, J7V 7E4",
 "phone": "450-218-6418",
@@ -52,9 +61,11 @@
 "lng": "-74.02330378773671",
   "age": "18+",
   "gender": "either",
-  "capacity": "20"
+  "capacity": "20",
+  "gMaps": "https://www.google.com/maps/place/536+Rue+Chicoine,+Vaudreuil-Dorion,+QC+J7V+7E4/@45.375895,-74.0320263,15z/data=!3m1!4b1!4m5!3m4!1s0x4cc94816441a2641:0x9577cc278499dc99!8m2!3d45.3758953!4d-74.0232716"
 }, 
 {
+  "id": "6",
 "name": "AMOUR EN ACTION (L')",
 "address": "10201 des Laurentides Avenue, Montréal-Nord, Montréal, QC, H1H 4V4",
 "phone": "514-327-0200",
@@ -63,9 +74,11 @@
 "lng": "-73.6384263435507",
   "age": "18+",
   "gender": "either",
-  "capacity": "20"
+  "capacity": "20",
+  "gMaps": "https://www.google.com/maps/search/536+Chicoine+Street0201+des+Laurentides+Avenue,+Montr%C3%A9al-Nord,+Montr%C3%A9al,+QC,+H1H+4V4,+Vaudreuil-Dorion,+Mont%C3%A9r%C3%A9gie,+QC,+J7V+7E4/@45.4784231,-74.1110307,10z/data=!3m1!4b1"
 }, 
 {
+  "id": "7",
 "name": "ASSOCIATION D'ENTRAIDE LE CHAÎNON",
 "address": "4373 de l'Esplanade Avenue, Le Plateau-Mont-Royal, Montréal, QC, H2W 1T2",
 "phone": "514-845-0151",
@@ -74,7 +87,8 @@
 "lng": "-73.58611811656979",
   "age": "18+",
   "gender": "female",
-  "capacity": "20"
+  "capacity": "20",
+  "gMaps":"https://www.google.com/maps/place/4373+Esplanade+Ave,+Montreal,+QC+H2W+1T2/@45.4784231,-74.1110307,10z/data=!4m5!3m4!1s0x4cc91a2d3025ff8f:0x481a17b3d0ca1ac6!8m2!3d45.5176728!4d-73.5860752"
 }
 ]
 }
