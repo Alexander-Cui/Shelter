@@ -4,9 +4,10 @@ import json
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=["GET","POST"])
 def home():
-
+    if request.method == "POST":
+        print(request.json)
     # Opening JSON file with homesless shelters info
     f = open('shelters.json')
 

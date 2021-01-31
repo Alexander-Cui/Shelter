@@ -42,9 +42,11 @@ function getDistances(location){
   for (let i=0; i<shelters.length;i++){
     let lat = shelters[i].getElementsByClassName("lat")[0].innerHTML;
     let lng = shelters[i].getElementsByClassName("lng")[0].innerHTML;
-    
+    let name = shelters[i].getElementsByClassName("name")[0].innerHTML;
+    console.log(name)
     locations.push(
       {
+        name:name,
         lat:lat,
         lng:lng
       }
@@ -57,42 +59,47 @@ function getDistances(location){
 }
 
 
-async function callDistanceMatrix(origin, destinations){
-
-    // let outputFormat = "json";
-    // let params = {};
-    // let parameters = toQuery(params);
-
-    // let response = await fetch(`https://maps.googleapis.com/maps/api/distancematrix/${outputFormat}?${parameters}`,{
-
-    // });
-    console.log("i have been called");
-
-    var origin1 = 'Greenwich, England';
-    console.log(`this is origin: ${origin.lat} ${origin.lng}`)
-    destinations = destinations.map( destination => {
+async function callDistanceMatrix(origin, destinationList){
+    let destinations = destinationList.map( destination => {
       return new google.maps.LatLng(destination.lat, destination.lng)
     });
 
+    function callback(response, status) {
+
+
+      let shelterInfo = response.rows[0]['elements'].map((distance,idx) =>{
+        let info = {
+          name:destinationList[idx].name,
+          distance:distance.distance.text,
+          duration:distance.duration.text,
+        }
+        return info
+      })
+
+      fetch("/",{
+        method:'POST',
+        headers:{
+          'Content-Type': 'application/json',
+        },
+        body:JSON.stringify(shelterInfo)
+      })
+
+    }
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
     {
         origins: [{lat:45.4979085,lng:-73.6369607}],
         destinations: destinations,
         travelMode: 'WALKING',
-        // transitOptions: TransitOptions,
-        // drivingOptions: DrivingOptions,
-        // unitSystem: UnitSystem,
-        // avoidHighways: Boolean,
-        // avoidTolls: Boolean,
     }, callback);
 
 }
-function callback(response, status) {
-    console.log(response);
-    // See Parsing the Results for
-    // the basics of a callback function.
-  }
+
+async function sendDistancesAndTimes(){
+
+
+
+}
 
 function toQuery(params){
 
