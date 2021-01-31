@@ -38,30 +38,13 @@
         margin-top: 10%;
         margin-left: 10%;
     }
-    #shelters {
-        border: 6px solid #333333;
-        border-radius: 8px;
-        background-color:#F8F8F8;
-    }
 
-    #shelters:hover {
-        background-color: #E8E8E8;
-    }
-
-    #shelters > p {
-        color: black;
-        padding: 20px 20px 20px 20px
-    }
 
     a:hover {
         text-decoration: none;
     }
 
-    #shelters > p {
-        color: black;
-        margin: 1px;
-        font-size: 10px;
-    }
+
 </style>
 
 <body>
@@ -79,39 +62,28 @@
         </div>
     </div>
     <br>
-
-    <div class="container-fluid">
+<form action ='/' method = "post">
+      <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6" style="background-color:#DCDCDC ;">
-                <div class="dropdown">
-                    <button type="button" class="btn dropdown-toggle" style="display: block; margin: 0 auto; background-color:#333333;" data-toggle="dropdown">
-                      Age
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Under 18</a>
-                      <a class="dropdown-item" href="#">Over 18</a>
-                      <a class="dropdown-item" href="#">Rather Not Say</a>
-                    </div>
-                  </div>
-                  <br>
+                <fieldset name="age" id="age" >
+                <label for="opt-0"><input type="radio" name="age" value="Under 18" id="Under 18">Under 18</label>
+                <label for="opt-1" ><input type="radio" name="age" value="Over 18" id="Over 18">Over 18</label>
+                <label for="opt-2"><input type="radio" name="age" value="Rather Not Say" id="Rather Not Say">Rather Not Say</label>
+            </fieldset>
+            <br>
             </div>
-            <div class="col-sm-6" style="background-color:#DCDCDC;">
-                <div class="dropdown">
-                    <button type="button" class="btn dropdown-toggle" style="display: block; margin: 0 auto; background-color:#333333;" data-toggle="dropdown">
-                      Gender
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Male</a>
-                      <a class="dropdown-item" href="#">Female</a>
-                      <a class="dropdown-item" href="#">Rather Not Say</a>
-                    </div>
-                  </div>
-                  <br>
-            </div>
-        </div>
 
-        <div class="container">
-            <div id="shelter_list"></div>
+            <div class="col-sm-6" style="background-color:#DCDCDC;">
+                <fieldset name="gender" id="gender">
+                <label for="opt-3"><input type="radio" name="gender" value="male" id="male">Male</label>
+                <label for="opt-4" ><input type="radio" name="gender" value="female" id="female">Female</label>
+                <label for="opt-5"><input type="radio" name="gender" value="either" id="either">Rather Not Say</label>
+            </fieldset>
+            <br>
+            </div>
+            <input type="submit" value="Submit">
+                </form>
         </div>
     </div>
 
