@@ -7,6 +7,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 <link  rel = " stylesheet " href = " {{url_for ('static', filename = 'login.css')}} " >
 
@@ -15,6 +16,7 @@
         font-family: 'Helvetica', 'Arial', sans-serif;
         background: linear-gradient(to bottom, #333333 0%, #333333 100%);
         background-size: cover;
+        padding: 4%;
     }
 
     #submitButton {
@@ -33,6 +35,7 @@
     justify-content: center;
     align-items: center;
     background-color: #E8E8E8;
+    box-shadow: 0 0 10px 10px #888888;
     }
 
 </style>
@@ -58,6 +61,13 @@
                 <div class="col text-center">
                 <button id="submitButton" value = "Register" type="submit">Login</button>
             </div>  
+            <br>
+            <br> 
         </form >
+        <div class="col-sm-12 form-group">
+            <div class="col text-center">
+                <a href="./index.html" class="btn btn-dark btn-lg">Back to SHELTER</a>
+        </div> 
     </div>
+    
 </body >
