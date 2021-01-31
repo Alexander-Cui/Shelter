@@ -16,7 +16,7 @@
 "phone": "438-220-2129",
 "demographic": "people experiencing homelessness",
 "lat": "45.50278210975688", 
-"long": "-73.55078210122505",
+"lng": "-73.55078210122505",
   "age": "18+",
   "gender": "either",
   "capacity": "20"
@@ -27,7 +27,7 @@
 "phone": "450-472-3135",
 "demographic": "people 18 years and over, homeless or at risk of homelessness",
 "lat": "45.56022216472333",
-"long": "-73.90146460122374",
+"lng": "-73.90146460122374",
   "age": "18+",
   "gender": "either",
   "capacity": "20"
@@ -38,7 +38,7 @@
 "phone": " ",
 "demographic": "homeless people, pets accepted",
 "lat": "45.46504971765899",
-"long": "-73.89738864355341",
+"lng": "-73.89738864355341",
   "age": "18+",
   "gender": "either",
   "capacity": "20"
@@ -49,18 +49,7 @@
 "phone": "450-218-6418",
 "demographic": "homeless men and women 18 years old and over",
 "lat": "45.376053545234946",
-"long": "-74.02330378773671",
-  "age": "18+",
-  "gender": "either",
-  "capacity": "20"
-}, 
-{
-"name": "AJOI-MOBILE",
-"address": "West Island, Montréal, QC",
-"phone": "514-708-1270",
-"demographic": "homeless people 18 years and over",
-"lat": "0",
-"long": "0",
+"lng": "-74.02330378773671",
   "age": "18+",
   "gender": "either",
   "capacity": "20"
@@ -71,7 +60,7 @@
 "phone": "514-327-0200",
 "demographic": "people on a low income, warming centre: men, women and children",
 "lat": "45.58222905820677" ,
-"long": "-73.6384263435507",
+"lng": "-73.6384263435507",
   "age": "18+",
   "gender": "either",
   "capacity": "20"
@@ -82,7 +71,7 @@
 "phone": "514-845-0151",
 "demographic": "women in difficult situations, 18 years old and over",
 "lat": "45.51786071817851",
-"long": "-73.58611811656979",
+"lng": "-73.58611811656979",
   "age": "18+",
   "gender": "female",
   "capacity": "20"

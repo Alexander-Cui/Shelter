@@ -1,19 +1,63 @@
+
+var location;
+// document.addEventListener("onDocumentReady", getLocation)
+function getStorageLocation(){
+  // if (localStorage.getItem("location")){
+  //   location = JSON.parse(localStorage.getItem("location"));
+  // }
+  // else{
+  //   console.log("calling get location");
+    location = getLocation();
+  // }
+}
+getLocation();
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition); // passes position into function showPosition
-  } else { 
-    var x = document.getElementById("demo");
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+  } 
+  // else { 
+  //   var x = document.getElementById("demo");
+  //   x.innerHTML = "Geolocation is not supported by this browser.";
+  // }
 }
 
 function showPosition(position) {
-    var x = document.getElementById("demo");
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
+  let locationObject = {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  }
+  localStorage.setItem("location", JSON.stringify(locationObject));
+  console.log(`location: ${JSON.stringify(locationObject)}`)
+
+  getDistances(locationObject)
+
+  return locationObject
 }
 
-async function callDistanceMatrix(){
+function getDistances(location){
+  console.log("here")
+  let shelters = document.querySelectorAll(".card-body");
+  console.log(shelters)
+  let locations = []
+  for (let i=0; i<shelters.length;i++){
+    let lat = shelters[i].getElementsByClassName("lat")[0].innerHTML;
+    let lng = shelters[i].getElementsByClassName("lng")[0].innerHTML;
+    
+    locations.push(
+      {
+        lat:lat,
+        lng:lng
+      }
+    )
+
+  } 
+
+  callDistanceMatrix(location, locations)
+
+}
+
+
+async function callDistanceMatrix(origin, destinations){
 
     // let outputFormat = "json";
     // let params = {};
@@ -23,17 +67,19 @@ async function callDistanceMatrix(){
 
     // });
     console.log("i have been called");
-    var origin1 = new google.maps.LatLng(55.930385, -3.118425);
-    var origin2 = 'H2Y 4B2';
-    var destinationA = 'J4J 1X9';
-    var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+
+    var origin1 = 'Greenwich, England';
+    console.log(`this is origin: ${origin.lat} ${origin.lng}`)
+    destinations = destinations.map( destination => {
+      return new google.maps.LatLng(destination.lat, destination.lng)
+    });
 
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(
     {
-        origins: [origin1],
-        destinations: [destinationA, destinationB, origin2],
-        travelMode: 'DRIVING',
+        origins: [{lat:45.4979085,lng:-73.6369607}],
+        destinations: destinations,
+        travelMode: 'WALKING',
         // transitOptions: TransitOptions,
         // drivingOptions: DrivingOptions,
         // unitSystem: UnitSystem,
