@@ -1,5 +1,7 @@
 # Shelter
 
+### Static
+* location.js
 
 ### Web-stuff
 * index.html
