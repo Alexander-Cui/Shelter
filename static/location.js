@@ -10,7 +10,15 @@ function getStorageLocation(){
     location = getLocation();
   // }
 }
-getLocation();
+
+var present = document.getElementById("load");
+if(present){
+  getLocation();
+}
+else{
+  console.log("not",present)
+}
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition); // passes position into function showPosition
@@ -58,13 +66,23 @@ function getDistances(location){
 
 }
 
+function compare(a, b) {
+  if (a.duration < b.duration) {
+    return -1;
+  }
+  if (a.duration > b.duration) {
+    return 1;
+  }
+  // a must be equal to b
+  return 0;
+}
 
 async function callDistanceMatrix(origin, destinationList){
     let destinations = destinationList.map( destination => {
       return new google.maps.LatLng(destination.lat, destination.lng)
     });
 
-    function callback(response, status) {
+    async function callback(response, status) {
 
 
       let shelterInfo = response.rows[0]['elements'].map((distance,idx) =>{
@@ -75,15 +93,20 @@ async function callDistanceMatrix(origin, destinationList){
         }
         return info
       })
-
-      fetch("/",{
+      shelterInfo.sort(compare)
+      console.log(JSON.stringify(shelterInfo))
+      
+      let r = fetch("/",{
         method:'POST',
         headers:{
           'Content-Type': 'application/json',
         },
         body:JSON.stringify(shelterInfo)
-      })
-
+      }).then(()=> {
+      console.log("here")
+      window.location.href = "/distance" })
+      console.log(r)
+      
     }
     var service = new google.maps.DistanceMatrixService();
     service.getDistanceMatrix(

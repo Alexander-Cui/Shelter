@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <!doctype html>
 <title>Shelter</title>
 
@@ -5,29 +6,24 @@
 <body>
     <section class="main">
         <div class="shelter-name">
-            <h1 class="name">ABRI DE LA RIVE-SUD</h1>
+            <h1 class="name">{{homeless_shelter_name}}</h1>
         </div>
+        <form action="/updated"  method = "post">
         <div class="available">
             <button class="buttons">
                 <h1>Space available</h1>
 
             </button>
-            <div class="edit">
-                <button class="increment">-</button>
-                <input class="input"/>
-                <button class="increment">+</button>
+            <div class="col-sm-12 form-group text-center" >
+                <label  for="username"> <b>Spots Available:</b></label >
+                    <br>
+                <input type="text" name ="spots" id ="spots" required >
+                <input type="hidden" name ="username" id="username" value="{{homeless_shelter_name}}">
             </div>
-            <div class="set">
-                <button>
-                    Set available space
-                </button>
-            </div>
+            <button id="submitButton" value = "Register" type="submit">Submit</button>
         </div>
-        <div class="not-available">
-            <button class="buttons">
-                No space available
-            </button>
-        </div>
+        </form>
     </section>
 
 </body>
+</html>

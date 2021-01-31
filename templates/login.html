@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
     <title> Login </title >
         <meta charset="utf-8">
@@ -30,7 +31,7 @@
     }
 
     .container {
-    height: 80%;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,31 +44,33 @@
     <br>
     <br>
     <div class="container">
-        <form  method = " POST ">
+        <form action="/Shelter"  method = "post">
             <div class="col-sm-12 form-group text-center" >
                 <h2>Login to Your Account</h2>
             </div>
             <div class="col-sm-12 form-group text-center" >
-                <label  for = " username " > <b>Username</b></label >
+                <label  for="username"> <b>Username</b></label >
                     <br>
-                <input  name = " username " id = " username " required >
+                <input type="text" name ="username" id ="username" required >
             </div>
             <div class="col-sm-12 form-group text-center">
-                <label  for = " password " > <b>Password</b> </label >
+                <label  for="password"> <b>Password</b> </label >
                     <br>
-                <input  type = " password " name = " password " id = " password " required >
+                <input  type ="text" name= "password" id = "password" required >
             </div>
             <div class="col-sm-12 form-group">
                 <div class="col text-center">
                 <button id="submitButton" value = "Register" type="submit">Login</button>
-            </div>  
+            </div>
             <br>
-            <br> 
-        </form >
+            <br>
+
+        </form>
         <div class="col-sm-12 form-group">
             <div class="col text-center">
                 <a href="./index.html" class="btn btn-dark btn-lg">Back to SHELTER</a>
-        </div> 
+        </div>
     </div>
-    
+
 </body >
+</html>
