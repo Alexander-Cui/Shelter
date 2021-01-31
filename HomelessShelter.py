@@ -65,12 +65,28 @@ def login():
 
 
 
-@app.route('/updated', methods="POST")
+@app.route('/updated', methods=["POST"])
 def update():
 
-    if request.method == 'POST':
+    if request.method == 'POST' and 'spots' in request.form and 'username' in request.form:
 
-        print(request.form)
+        updated_capacity= request.form['spots']
+        username = request.form['username']
+        a_file =open('shelters.json','r')
+        json_object = json.load(a_file)
+        a_file.close()
+        for shelter in json_object["shelters"]:
+            if shelter['name'] == username:
+                shelter['capacity'] = updated_capacity
+
+        a_file = open("shelters.json", "w")
+        json.dump(json_object, a_file)
+        a_file.close()
+
+
+
+
+    return render_template("updated.html")
 
 if __name__ == '__main__':
     app.run()

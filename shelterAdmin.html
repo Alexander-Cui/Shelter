@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!doctype html>
+<title>Shelter</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='shelter.css') }}">
+<body>
+    <section class="main">
+        <div class="shelter-name">
+            <h1 class="name">{{homeless_shelter_name}}</h1>
+        </div>
+        <form action="/updated"  method = "post">
+        <div class="available">
+            <button class="buttons">
+                <h1>Space available</h1>
+
+            </button>
+            <div class="col-sm-12 form-group text-center" >
+                <label  for="username"> <b>Spots Available:</b></label >
+                    <br>
+                <input type="text" name ="spots" id ="spots" required >
+                <input type="hidden" name ="username" id="username" value="{{homeless_shelter_name}}">
+            </div>
+            <button id="submitButton" value = "Register" type="submit">Submit</button>
+        </div>
+        </form>
+    </section>
+
+</body>
+</html>
