@@ -1,0 +1,28 @@
+<style>
+ .navbar.navbar-expand-sm.bg-dark li a {
+    color: white !important;
+}
+</style>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">HOME</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item"><a href="211" target="_blank"><i class="fa fa-phone"></i>&nbsp 211</a></li>
+            &nbsp
+            &nbsp
+            <li class="nav-item"><a href="https://www.211qc.ca/en/search?cat-id=11&sub-cat=shelters" target="_blank"><i class="fa fa-globe"></i>&nbsp 211 qc</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    $(function () {
+        $('.navbar-collapse ul li a:not(.dropdown-toggle)').click(function () {
+            $('.navbar-toggle:visible').click();
+        });
+    });
+</script>
