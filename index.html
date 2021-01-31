@@ -129,13 +129,15 @@
         </div>
     </div>
     <br>
+
     <div id="tag">
     <form action ='/' method = "post">
        <div class="container-fluid">
          <div class="row">
-             <div class="col-sm-6" style="background-color:#DCDCDC ;">
+             <div class="col-sm-6 text-center" style="background-color:#DCDCDC ;">
                    <br>
                  <fieldset name="age" id="age" >
+                 <b>Age: </b>
                  <label for="opt-0"><input type="radio" name="age" value="Under 18" id="Under 18">Under 18</label>
                  <label for="opt-1" ><input type="radio" name="age" value="18+" id="18+">18+</label>
                  <label for="opt-2"><input type="radio" name="age" value="either" id="Rather Not Say">Rather Not Say</label>
@@ -143,9 +145,10 @@
              <br>
              </div>
 
-             <div class="col-sm-6" style="background-color:#DCDCDC;">
+             <div class="col-sm-6 text-center" style="background-color:#DCDCDC;">
                    <br>
                  <fieldset name="gender" id="gender">
+                <b>Gender: </b>
                  <label for="opt-3"><input type="radio" name="gender" value="male" id="male">Male</label>
                  <label for="opt-4" ><input type="radio" name="gender" value="female" id="female">Female</label>
                  <label for="opt-5"><input type="radio" name="gender" value="either" id="either">Rather Not Say</label>
@@ -158,6 +161,8 @@
              <div id="shelter_list"></div>
              <input type="submit" value="Submit">
         </div>
+        </div>
+        <br>
     </form>
 
     {% for shelter in shelters_data['shelters'] %}
@@ -186,7 +191,7 @@
                                 <h5>{{shelter['demographic']}}</h5>
                             </div>
                             <div class="modal-footer">
-                                <a href="https://www.google.com/maps/" target="_blank"><i class="fa fa-map"></i>&nbsp {{shelter['address']}}</a>
+                                <a href="{{shelter['gMaps']}}" target="_blank"><i class="fa fa-map"></i>&nbsp {{shelter['address']}}</a>
                             </div>
                         </div>
                     </div>
@@ -197,12 +202,12 @@
 
     {% endfor %}
 
-            </div>
+    </div>
+
     <div id="myFooter" class="footer">
         <p id="rights"></p>
         <script>document.querySelector('#rights').innerHTML = `Copyright &copy; ${new Date().getFullYear()} SHELTER All rights reserved`;</script>
     </div>
-
 
 </body>
 </html>
