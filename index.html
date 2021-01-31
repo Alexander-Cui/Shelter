@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <title>Shelter</title>
     <meta charset="utf-8">
@@ -11,12 +11,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script> 
+    <script>
         $(function(){
-            $("#navbarReuse").load("navbar.html"); 
+            $("#navbarReuse").load("navbar.html");
             $("#footerReuse").load("footer.html");
-        });         
-    </script> 
+        });
+    </script>
 </head>
 
 <style>
@@ -36,8 +36,8 @@
     .btn-lg {
         width: 40%;
         margin-top: 10%;
-        margin-left: 10%;   
-    }   
+        margin-left: 10%;
+    }
     #shelters {
         border: 6px solid #333333;
         border-radius: 8px;
@@ -65,10 +65,10 @@
 </style>
 
 <body>
-        
+
     <div id="navbarReuse"></div>
     <br>
-    <div class="container mr-auto ml-auto"> 
+    <div class="container mr-auto ml-auto">
         <div id="searchWrapper">
             <input
                 type="text"
@@ -79,7 +79,7 @@
         </div>
     </div>
     <br>
-    
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6" style="background-color:#DCDCDC ;">
@@ -92,7 +92,7 @@
                       <a class="dropdown-item" href="#">Over 18</a>
                       <a class="dropdown-item" href="#">Rather Not Say</a>
                     </div>
-                  </div> 
+                  </div>
                   <br>
             </div>
             <div class="col-sm-6" style="background-color:#DCDCDC;">
@@ -105,75 +105,40 @@
                       <a class="dropdown-item" href="#">Female</a>
                       <a class="dropdown-item" href="#">Rather Not Say</a>
                     </div>
-                  </div> 
+                  </div>
                   <br>
             </div>
         </div>
-        
-        <div class="container">    
-            <div id="shelter_list"></div>                      
-        </div>  
+
+        <div class="container">
+            <div id="shelter_list"></div>
+        </div>
     </div>
 
-    
-    <div id="footerReuse"></div> 
-    
-    <script>
-        const shelterList = document.getElementById('shelter_list');
-        let allShelters = [];
 
-        const loadShelters = async () => {
-            try {
-                const res = await fetch('shelters.json');
-                allShelters = await res.json();
-                displayShelters(allShelters);
-            } catch (err) {
-                console.error(err);
-            }
-        };
+    <div id="footerReuse"></div>
 
-        const displayShelters = (shelters) => {
-            const htmlString = shelters
-                .map((shelter) => {
-                    return `   
-                    <a data-toggle="modal" data-target="#myModal${shelter.ID}">
+
                         <div class="row">
-                            <div class="col-sm-12" id="shelters">                            
-                                <p style="font-size: 100%;">${shelter.name}
-                                    <!-- <p>${shelter.address}</p>  --> 
-                                </p>      
-                             </div>                        
+                            <div class="col-sm-12" id="shelters">
+                                {% for shelter in shelters_data['shelters'] %}
+
+    <div class="card">
+  <div class="card-body">
+      <h1>{{shelter['name']}}</h1>
+        <h2>{{shelter['address']}}</h2>
+      <h2>Phone Number: {{shelter['phone']}}</h2>
+      <h2>{{shelter['demographic']}}</h2>
+      <h2>Capacity: {{shelter['capacity']}}</h2>
+
+  </div>
+    </div>
+
+    {% endfor %}
+                             </div>
                         </div>
                     </a>
-                    
-                    <!-- Modal -->
-                    <div id="myModal${shelter.ID}" class="modal fade" role="dialog">
-                      <div class="modal-dialog modal-lg">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h3 class="modal-title"><center>${shelter.name}</center></h3>
-                          </div>
-                          <div class="modal-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h4>${shelter.name}</h4>
-                                    <h5><a style="color: black"; href="${shelter.map}" target="_blank" rel="noopener"><span class="glyphicon glyphicon-map-marker"></span>&nbsp;${shelter.address}</a></h5>   
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <br>
-                `;
-                })
-                .join('');
-            shelterList.innerHTML = htmlString;
-        };     
-         
-        loadShelters();          
-    </script> 
-</body>   
+
+
+</body>
 </html>
