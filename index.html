@@ -14,11 +14,10 @@
 </head>
 
 <style>
-     body {
+    body {
         font-family: 'Helvetica', 'Arial', sans-serif;
         background: linear-gradient(to bottom, #DCDCDC 0%, #DCDCDC 100%);
         background-size: cover;
-        
     }
     .container {
         display: flex;
@@ -31,12 +30,12 @@
     .btn-lg {
         width: 40%;
         margin-top: 10%;
-        margin-left: 10%;   
-    }   
+        margin-left: 10%;
+    }
     #shelters {
         border: 6px solid #333333;
         border-radius: 2%;
-        background-color:#F8F8F8;  
+        background-color:#F8F8F8;
     }
 
     #shelters:hover {
@@ -70,7 +69,7 @@
     .navbar.navbar-expand-sm.bg-dark li a {
            color: white !important;
        }
-    
+
     #myFooter {
         background-color: 	#333333;
         padding-top: 0%;
@@ -81,7 +80,6 @@
     }
     #tag {
         padding: 5%;
-    }
     }
 </style>
 
@@ -117,6 +115,7 @@
     </script>
     <div id="navbarReuse"></div>
     <br>
+    
     <div class="container mr-auto ml-auto">
         <b>Location: </b>
         &nbsp
@@ -130,6 +129,7 @@
         </div>
     </div>
     <br>
+    <div id="tag">
     <form action ='/' method = "post">
        <div class="container-fluid">
          <div class="row">
@@ -157,10 +157,10 @@
          <div class="container">
              <div id="shelter_list"></div>
              <input type="submit" value="Submit">
+        </div>
     </form>
 
-          {% for shelter in shelters_data['shelters'] %}
-
+    {% for shelter in shelters_data['shelters'] %}
         <!-- <div class="card"> -->
             <!-- <div class="container"> -->
                 <a data-toggle="modal" data-target="#myModal{{shelter['id']}}">
@@ -194,8 +194,10 @@
             <!-- </div> -->
         <!-- </div> -->
 
-        {% endfor %}
 
+    {% endfor %}
+
+            </div>
     <div id="myFooter" class="footer">
         <p id="rights"></p>
         <script>document.querySelector('#rights').innerHTML = `Copyright &copy; ${new Date().getFullYear()} SHELTER All rights reserved`;</script>
