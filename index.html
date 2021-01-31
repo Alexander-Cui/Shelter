@@ -11,12 +11,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script>
-        $(function(){
-            $("#navbarReuse").load("navbar.html");
-            $("#footerReuse").load("footer.html");
-        });
-    </script>
 </head>
 
 <style>
@@ -38,20 +32,89 @@
         margin-top: 10%;
         margin-left: 10%;
     }
+    #shelters {
+        border: 6px solid #333333;
+        border-radius: 2%;
+        background-color:#F8F8F8;
+    }
 
+    #shelters:hover {
+        background-color: #E8E8E8;
+    }
+
+    #shelters > p {
+        color: black;
+        padding: 20px 20px 20px 20px
+    }
 
     a:hover {
         text-decoration: none;
     }
 
+    #shelters > p {
+        color: black;
+        margin: 1px;
+        font-size: 10px;
+    }
 
+    #searchBar {
+        width: 100%;
+        height: 80%;
+        border-radius: 6px;
+        border: 1px solid #333333;
+        padding: 5px 10px;
+        font-size: 18px;
+    }
+
+    .navbar.navbar-expand-sm.bg-dark li a {
+           color: white !important;
+       }
+
+    #myFooter {
+        background-color: 	#333333;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        width: 100%;
+        color: white;
+        text-align: center;
+    }
 </style>
 
 <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">SHELTER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item"><a href="tel:211" target="_blank"><i class="fa fa-phone"></i>&nbsp 211</a></li>
+                &nbsp
+                &nbsp
+                &nbsp
+                &nbsp
+                <li class="nav-item"><a href="https://www.211qc.ca/en/search?cat-id=11&sub-cat=shelters" target="_blank"><i class="fa fa-globe"></i>&nbsp 211 qc</a></li>
+                &nbsp
+                &nbsp
+                &nbsp
+                &nbsp
+                <li class="nav-item"><a href="/login" target="_blank"><i class="fa fa-building"></i>&nbsp I am a Shelter</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <script>
+        $(function () {
+            $('.navbar-collapse ul li a:not(.dropdown-toggle)').click(function () {
+                $('.navbar-toggle:visible').click();
+            });
+        });
+    </script>
     <div id="navbarReuse"></div>
     <br>
     <div class="container mr-auto ml-auto">
+        <b>Location: </b>
+        &nbsp
         <div id="searchWrapper">
             <input
                 type="text"
@@ -62,54 +125,75 @@
         </div>
     </div>
     <br>
-<form action ='/' method = "post">
-      <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-6" style="background-color:#DCDCDC ;">
-                <fieldset name="age" id="age" >
-                <label for="opt-0"><input type="radio" name="age" value="Under 18" id="Under 18">Under 18</label>
-                <label for="opt-1" ><input type="radio" name="age" value="18+" id="18+">18+</label>
-                <label for="opt-2"><input type="radio" name="age" value="either" id="Rather Not Say">Rather Not Say</label>
-            </fieldset>
-            <br>
-            </div>
+    <form action ='/' method = "post">
+       <div class="container-fluid">
+         <div class="row">
+             <div class="col-sm-6" style="background-color:#DCDCDC ;">
+                   <br>
+                 <fieldset name="age" id="age" >
+                 <label for="opt-0"><input type="radio" name="age" value="Under 18" id="Under 18">Under 18</label>
+                 <label for="opt-1" ><input type="radio" name="age" value="18+" id="18+">18+</label>
+                 <label for="opt-2"><input type="radio" name="age" value="either" id="Rather Not Say">Rather Not Say</label>
+             </fieldset>
+             <br>
+             </div>
 
-            <div class="col-sm-6" style="background-color:#DCDCDC;">
-                <fieldset name="gender" id="gender">
-                <label for="opt-3"><input type="radio" name="gender" value="male" id="male">Male</label>
-                <label for="opt-4" ><input type="radio" name="gender" value="female" id="female">Female</label>
-                <label for="opt-5"><input type="radio" name="gender" value="either" id="either">Rather Not Say</label>
-            </fieldset>
-            <br>
-            </div>
-            <input type="submit" value="Submit">
-                </form>
+             <div class="col-sm-6" style="background-color:#DCDCDC;">
+                   <br>
+                 <fieldset name="gender" id="gender">
+                 <label for="opt-3"><input type="radio" name="gender" value="male" id="male">Male</label>
+                 <label for="opt-4" ><input type="radio" name="gender" value="female" id="female">Female</label>
+                 <label for="opt-5"><input type="radio" name="gender" value="either" id="either">Rather Not Say</label>
+             </fieldset>
+             <br>
+             </div>
+         </div>
+
+         <div class="container">
+             <div id="shelter_list"></div>
+             <input type="submit" value="Submit">
+    </form>
+
+    {% for shelter in shelters_data['shelters'] %}
+
+    <!-- <div class="card"> -->
+        <div class="container">
+            <a data-toggle="modal" data-target="#myModal{{shelter['id']}}">
+                <div class="row">
+                    <div class="col-sm-12 form-group text-center" id="shelters">
+                        <h3>{{shelter['name']}}</h3>
+                        <h4>{{shelter['address']}}</h4>
+                        <h5> Capacity: {{shelter['capacity']}}</h5>
+                    </div>
+                </div>
+            </a>
+            <div id="myModal{{shelter['id']}}" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-content">
+                        <div class="row"></div>
+                            <div class="col-sm-12"></div>
+                                <h2>{{shelter['name']}}</h2>
+                                <a href="tel:211" target="_blank"><i class="fa fa-phone"></i>&nbsp {{shelter['phone']}}</a>
+                                <h5>{{shelter['demographic']}}</h5>
+                                <a href="googlemaps.com" target="_blank"><i class="fa fa-map"></i>&nbsp {{shelter['address']}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
         </div>
-    </div>
-
-
-    <div id="footerReuse"></div>
-
-
-                        <div class="row">
-                            <div class="col-sm-12" id="shelters">
-                                {% for shelter in shelters_data['shelters'] %}
-
-    <div class="card">
-  <div class="card-body">
-      <h1>{{shelter['name']}}</h1>
-        <h2>{{shelter['address']}}</h2>
-      <h2>Phone Number: {{shelter['phone']}}</h2>
-      <h2>{{shelter['demographic']}}</h2>
-      <h2>Capacity: {{shelter['capacity']}}</h2>
-
-  </div>
-    </div>
 
     {% endfor %}
-                             </div>
-                        </div>
-                    </a>
+
+
+    <div id="myFooter" class="footer">
+        <p id="rights"></p>
+        <script>document.querySelector('#rights').innerHTML = `Copyright &copy; ${new Date().getFullYear()} SHELTER All rights reserved`;</script>
+    </div>
 
 
 </body>
