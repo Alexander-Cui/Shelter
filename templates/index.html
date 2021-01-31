@@ -12,19 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
-    <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUcZ7C8rWZK9SMVFvlPuKF8Ah2wwKmLmk">
-    </script>
-    <script type="text/javascript"
-    src="{{ url_for('static', filename='location.js') }}"></script>
-
-    <script> 
-        $(function(){
-            $("#navbarReuse").load("navbar.html"); 
-            $("#footerReuse").load("footer.html");
-        });         
-    </script> 
 </head>
 
 <style>
@@ -48,8 +35,8 @@
     }   
     #shelters {
         border: 6px solid #333333;
-        border-radius: 8px;
-        background-color:#F8F8F8;
+        border-radius: 2%;
+        background-color:#F8F8F8;  
     }
 
     #shelters:hover {
@@ -79,10 +66,51 @@
         padding: 5px 10px;
         font-size: 18px;
     }
+
+    .navbar.navbar-expand-sm.bg-dark li a {
+           color: white !important;
+       }
+    
+    #myFooter {
+        background-color: 	#333333;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        width: 100%;
+        color: white;
+        text-align: center;
+    }
 </style>
 
-<body>
-        
+<body> 
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">SHELTER</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item"><a href="tel:211" target="_blank"><i class="fa fa-phone"></i>&nbsp 211</a></li>
+                &nbsp
+                &nbsp
+                &nbsp
+                &nbsp
+                <li class="nav-item"><a href="https://www.211qc.ca/en/search?cat-id=11&sub-cat=shelters" target="_blank"><i class="fa fa-globe"></i>&nbsp 211 qc</a></li>
+                &nbsp
+                &nbsp
+                &nbsp
+                &nbsp
+                <li class="nav-item"><a href="/login" target="_blank"><i class="fa fa-building"></i>&nbsp I am a Shelter</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <script>
+        $(function () {
+            $('.navbar-collapse ul li a:not(.dropdown-toggle)').click(function () {
+                $('.navbar-toggle:visible').click();
+            });
+        });
+    </script>  
     <div id="navbarReuse"></div>
     <br>
     <div class="container mr-auto ml-auto"> 
@@ -123,35 +151,51 @@
             <br>
             </div>
         </div>
-        
-        <div class="container">    
-            <div id="shelter_list"></div>                      
-        </div>  
+         
     </div>
-
     
-    <div id="footerReuse"></div> 
-    
-    <div class="row">
-        <div class="col-sm-12" id="shelters">
-            {% for shelter in shelters_data['shelters'] %}
+   
+    {% for shelter in shelters_data['shelters'] %}
 
-        <div class="card">
-            <div class="card-body">
-                <h1 class="name">{{shelter['name']}}</h1>
-                <h2>{{shelter['address']}}</h2>
-                <h2>Phone Number: {{shelter['phone']}}</h2>
-                <h2>{{shelter['demographic']}}</h2>
-                <h2>Capacity: {{shelter['capacity']}}</h2>      
-                <div class="lat" style="display:none">{{shelter['lat']}}</div>
-                <div class="lng" style="display:none">{{shelter['lng']}}</div>
-            </div>
+    <!-- <div class="card"> -->
+        <div class="container">
+            <a data-toggle="modal" data-target="#myModal{{shelter['id']}}">
+                <div class="row">
+                    <div class="col-sm-12 form-group text-center" id="shelters"> 
+                        <h3>{{shelter['name']}}</h3>
+                        <h4>{{shelter['address']}}</h4>                       
+                        <h5> Capacity: {{shelter['capacity']}}</h5>  
+                    </div>
+                </div>   
+            </a>
+            <div id="myModal{{shelter['id']}}" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-content">
+                        <div class="row"></div>
+                            <div class="col-sm-12"></div>
+                                <h2>{{shelter['name']}}</h2>
+                                <a href="tel:211" target="_blank"><i class="fa fa-phone"></i>&nbsp {{shelter['phone']}}</a>                      
+                                <h5>{{shelter['demographic']}}</h5>
+                                <a href="googlemaps.com" target="_blank"><i class="fa fa-map"></i>&nbsp {{shelter['address']}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
         </div>
+    <!-- </div> -->
 
-            {% endfor %}
-         </div>
+    {% endfor %}
+  
+
+    <div id="myFooter" class="footer">
+        <p id="rights"></p>
+        <script>document.querySelector('#rights').innerHTML = `Copyright &copy; ${new Date().getFullYear()} SHELTER All rights reserved`;</script>
     </div>
-
 
 
 </body>   
