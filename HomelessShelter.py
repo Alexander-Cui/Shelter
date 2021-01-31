@@ -1,11 +1,13 @@
-from flask import Flask, render_template
-from flask import request
+from flask import Flask, render_template, redirect, url_for, request
 import json
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['POST','GET'])
 def home():
+
+
+
 
     # Opening JSON file with homesless shelters info
     f = open('shelters.json')
@@ -19,19 +21,33 @@ def home():
 
     # Closing file
     f.close()
-
-    return render_template('index.html', shelters_data=shelters_data)
-
-@app.route('/Shelter')
-def shelter():
-    return render_template("shelterAdmin.html")
-
-@app.route('/login', methods=["GET","POST"])
-def login():
+    matching = []
+    ordered_matching = []
+    matching_shelters = {}
+    matching_shelters['shelters'] = matching
     if request.method == 'POST':
-        print(request.form)
-    return render_template("login.html")
+        print("$$$$$")
+        if 'age' or 'gender' in request.form:
+            print("*******")
+            gender = request.form['gender']
+            age = request.form['age']
+            ordered_locations = request.json
+            print(gender)
+            print(age)
 
+            for shelter in shelters_data['shelters']:
+                if (shelter['gender'] == gender) and (shelter['age'] == age):
+                    matching.append(shelter)
+            print(matching)
+            # for s in ordered_shelters:
+            #     for sun in matching:
+            #         if sun['name'] == s['name']:
+            #             ordered_matching.append(sun)
+            # matching_shelters['shelters'] = ordered_matching
+            shelters_data = matching_shelters
+
+    #return render_template('index.html', shelters_data=matching_shelters)
+    return render_template('index.html', shelters_data=shelters_data)
 if __name__ == '__main__':
     app.run()
 #app.run('0.0.0.0', 8000, debug = True)
